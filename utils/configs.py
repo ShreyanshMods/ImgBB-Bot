@@ -30,7 +30,7 @@ class Var(object):
 class Tr(object):
 
     START_TEXT = """
-👋 Hi ! {} Welcome To @ImgBBRobot
+👋 Hi ! {} Welcome To @SnapLinkMasterBot
 
 **With This Bot You Can Hosts Your Images On imgbb.com **
 
