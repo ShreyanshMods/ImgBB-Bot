@@ -4,28 +4,13 @@ import shutil
 import time
 import traceback
 import ntplib
-from time import ctime, sleep
+from time import ctime
 
 import imgbbpy
 import pyromod.listen  # pylint: disable=unused-import
 from pyrogram import Client, filters
 from pyromod.helpers import ikb
-
 from utils.configs import Tr, Var
-
-# Time Sync Function
-def sync_time():
-    try:
-        ntp_client = ntplib.NTPClient()
-        response = ntp_client.request('pool.ntp.org')
-        print(f"Time before sync: {ctime()}")
-        os.system(f"date -s '{ctime(response.tx_time)}'")
-        print(f"Time after sync: {ctime()}")
-    except Exception as e:
-        print(f"Failed to sync time: {e}")
-
-# Call the time sync function
-sync_time()
 
 Imgclient = imgbbpy.SyncClient(Var.API)
 
@@ -56,6 +41,35 @@ START_BTN = ikb(
 HOME_BTN = ikb([[("🏠", "home"), ("❌", "close")]])
 CLOSE_BTN = [("❌", "close")]
 
+# Global time offset
+TIME_OFFSET = 0
+
+# Time Offset Sync Function
+def sync_time_offset():
+    global TIME_OFFSET
+    try:
+        ntp_client = ntplib.NTPClient()
+        response = ntp_client.request('pool.ntp.org')
+        # Calculate the time offset
+        TIME_OFFSET = response.tx_time - time.time()
+        print(f"Time before sync: {ctime()}")
+        print(f"NTP Time: {ctime(response.tx_time)}")
+        print(f"Local Time Offset: {TIME_OFFSET} seconds")
+    except Exception as e:
+        print(f"Failed to sync time: {e}")
+        TIME_OFFSET = 0
+
+# Call the time offset sync function
+sync_time_offset()
+
+# Override time.time() to include offset
+original_time = time.time
+def adjusted_time():
+    return original_time() + TIME_OFFSET
+
+# Override globally
+time.time = adjusted_time
+
 @Img.on_callback_query()
 async def cdata(c, q):
     chat_id = q.from_user.id
@@ -80,6 +94,7 @@ async def cdata(c, q):
             reply_markup=HOME_BTN,
             disable_web_page_preview=True,
         )
+
     elif data == "close":
         await q.message.delete(True)
         try:
@@ -89,14 +104,20 @@ async def cdata(c, q):
 
     elif data.startswith("del_"):
         num = data.split("_", 1)[1]
+
         await q.message.delete()
+
         if num == "0":
             exp = None
         else:
             exp = int(num)
+
         await q.answer(wait)
+
         r = q.message.reply_to_message
+
         filename = f"Main-{chat_id}"
+
         if r.document:
             filename = f"Document-{chat_id}"
         elif r.photo:
@@ -105,12 +126,16 @@ async def cdata(c, q):
             filename = f"Sticker-{chat_id}"
         elif r.animation:
             filename = f"Animation-{chat_id}"
-        
+
         tmp = os.path.join("downloads", str(chat_id))
         if not os.path.isdir(tmp):
             os.makedirs(tmp)
 
-        dwn = await q.message.reply_text("✅ Downloading ...", True)
+        dwn = await q.message.reply_text(
+            "✅ Downloading ...",
+            True,
+        )
+
         img_path = await r.download()
         await dwn.edit_text("⭕ Uploading ...")
         await dwn.delete()
@@ -148,8 +173,10 @@ async def cdata(c, q):
 
         await q.message.reply(done, disable_web_page_preview=True, reply_markup=imgkb)
         shutil.rmtree(tmp, ignore_errors=True)
+
     else:
         await q.message.delete()
+
 
 @Img.on_message(filters.private & filters.command(["start"]))
 async def start(c, m):
@@ -162,6 +189,7 @@ async def start(c, m):
         quote=True,
     )
 
+
 @Img.on_message(
     filters.private
     & (filters.photo | filters.sticker | filters.document | filters.animation)
@@ -169,8 +197,12 @@ async def start(c, m):
 async def getimglink(c, m):
     chat_id = m.from_user.id
     user = await c.get_users(int(chat_id))
+
     if not Var.API:
-        return await m.reply_text(Tr.ERR_TEXT, quote=True)
+        return await m.reply_text(
+            Tr.ERR_TEXT,
+            quote=True,
+        )
 
     if m.document:
         if not m.document.file_name.endswith(ext):
@@ -208,7 +240,13 @@ async def getimglink(c, m):
             ],
         ]
     )
-    await m.reply_text("🗑 AutoDelete ? ...", reply_markup=BTN, quote=True)
+
+    await m.reply_text(
+        "🗑 AutoDelete ? ...",
+        reply_markup=BTN,
+        quote=True,
+    )
+
 
 def HumanBytes(size):
     if not size:
@@ -221,12 +259,27 @@ def HumanBytes(size):
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + "B"
 
+
 def SecondsToText(secs):
     days = secs // 86400
     hours = (secs - days * 86400) // 3600
     minutes = (secs - days * 86400 - hours * 3600) // 60
     seconds = secs - days * 86400 - hours * 3600 - minutes * 60
-    return f"{days}d {hours}h {minutes}m {seconds}s"
+    result = (
+        ("{0} Day{1}, ".format(days, "s" if days != 1 else "") if days else "")
+        + ("{0} Hour{1}, ".format(hours, "s" if hours != 1 else "") if hours else "")
+        + (
+            "{0} Minute{1}, ".format(minutes, "s" if minutes != 1 else "")
+            if minutes
+            else ""
+        )
+        + (
+            "{0} Second{1}, ".format(seconds, "s" if seconds != 1 else "")
+            if seconds
+            else ""
+        )
+    )
+    return result
 
 # Run the bot
 Img.run()
