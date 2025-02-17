@@ -20,8 +20,8 @@ class Var(object):
     # You Can Get An API Key From https://api.imgbb.com.
     API = os.environ.get("API", None)
 
-    OWNER_ID = int(os.environ.get("OWNER_ID", "853393439"))
-    BOT_NAME = os.environ.get("BOT_NAME", "ImgBBRobot")
+    OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+    BOT_NAME = os.environ.get("BOT_NAME", "")
 
     START_PIC = "https://i.imgur.com/zYIllxt.jpg"
     HELP_PIC = "https://i.imgur.com/AmxAlix.jpg"
@@ -37,7 +37,7 @@ class Tr(object):
 You Can Send An Image As Forwarded Message From Any Chat/Channel Or Upload It As Photo Or File.
 """
 
-    ABOUT_TEXT = """🤖 **My Name:** [ImgBB](t.me/ImgBBRobot)
+    ABOUT_TEXT = """🤖 **My Name:** [SnapLink](t.me/SnapLinkMasterBot)
 
 📝 **Language:** [Python 3](https://www.python.org)
 
@@ -45,25 +45,25 @@ You Can Send An Image As Forwarded Message From Any Chat/Channel Or Upload It As
 
 📡 **Hosted On:** [Railway](railway.app)
 
-👨‍💻 **Developer:** [Amine Soukara](t.me/AmineSoukara)
+👨‍💻 **Developer:** [Tech Shreyansh](t.me/Tech_Shreyansh29)
 
-💡 **Source Code:** [Github](https://github.com/AmineSoukara/ImgBB-Bot/fork)
+💡 **Source Code:** [Github](https://github.com/ShreyanshMods/ImgBB-Bot/fork)
 
-👥 **Support Group:** [Damien Help](https://t.me/DamienHelp)
+👥 **Support Group:** [Admin Help](https://t.me/Tech_Shreyansh2)
 
-📢 **Updates Channel:** [Damien Soukara](https://t.me/DamienSoukara)
+📢 **Updates Channel:** [Tech Shreyansh](https://t.me/Tech_Shreyansh)
 
 
-❤ [Donate](https://www.paypal.me/AmineSoukara) (PayPal)
+❤ [Donate](https://www.paypal.me/techshreyansh29) (PayPal)
 """
 
     HELP_TEXT = """💡 Just Send Me Your Photo And I'll Upload it To You .  That's it
 
-❤ [Donate](https://www.paypal.me/AmineSoukara) (PayPal)
+❤ [Donate](techshreyansh@uboi) (Upi)
 """
 
     ERR_TEXT = "⚠️ API Not Found"
 
-    ERRTOKEN_TEXT = "😶 The Access Token Provided Is Expired, Revoked, Malformed Or Invalid For Other Reasons. DM @AmineSoukara",
+    ERRTOKEN_TEXT = "😶 The Access Token Provided Is Expired, Revoked, Malformed Or Invalid For Other Reasons. DM @Tech_Shreyansh29",
 
     WAIT = "💬 Please Wait !!"
