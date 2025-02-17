@@ -34,7 +34,7 @@ START_BTN = ikb(
             ("📚 Help", "help"),
         ],
         [
-            ("👨‍💻 Developer", "https://bio.link/aminesoukara", "url"),
+            ("👨‍💻 Developer", "https://t.me/Tech_Shreyansh29", "url"),
             ("❌", "close"),
         ],
     ]
