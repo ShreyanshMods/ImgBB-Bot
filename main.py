@@ -3,13 +3,13 @@ import os
 import shutil
 import time
 import traceback
-import ntplib
-from time import ctime
 
 import imgbbpy
 import pyromod.listen  # pylint: disable=unused-import
 from pyrogram import Client, filters
 from pyromod.helpers import ikb
+
+
 from utils.configs import Tr, Var
 
 Imgclient = imgbbpy.SyncClient(Var.API)
@@ -18,12 +18,14 @@ ext = tuple(
     [".jpg", ".png", ".jpeg", ".wepb", ".gif", ".bmp", ".heic", ".pdf", ".tif", ".webp"]
 )
 
+
 Img = Client(
     "ImgBB Bot",
     bot_token=Var.BOT_TOKEN,
     api_id=Var.API_ID,
     api_hash=Var.API_HASH,
 )
+
 
 START_BTN = ikb(
     [
@@ -32,43 +34,16 @@ START_BTN = ikb(
             ("📚 Help", "help"),
         ],
         [
-            ("👨‍💻 Developer", "https://t.me/Tech_Shreyansh29", "url"),
+            ("👨‍💻 Developer", "https://bio.link/aminesoukara", "url"),
             ("❌", "close"),
         ],
     ]
 )
 
+
 HOME_BTN = ikb([[("🏠", "home"), ("❌", "close")]])
 CLOSE_BTN = [("❌", "close")]
 
-# Global time offset
-TIME_OFFSET = 0
-
-# Time Offset Sync Function
-def sync_time_offset():
-    global TIME_OFFSET
-    try:
-        ntp_client = ntplib.NTPClient()
-        response = ntp_client.request('pool.ntp.org')
-        # Calculate the time offset
-        TIME_OFFSET = response.tx_time - time.time()
-        print(f"Time before sync: {ctime()}")
-        print(f"NTP Time: {ctime(response.tx_time)}")
-        print(f"Local Time Offset: {TIME_OFFSET} seconds")
-    except Exception as e:
-        print(f"Failed to sync time: {e}")
-        TIME_OFFSET = 0
-
-# Call the time offset sync function
-sync_time_offset()
-
-# Override time.time() to include offset
-original_time = time.time
-def adjusted_time():
-    return original_time() + TIME_OFFSET
-
-# Override globally
-time.time = adjusted_time
 
 @Img.on_callback_query()
 async def cdata(c, q):
@@ -102,6 +77,7 @@ async def cdata(c, q):
         except BaseException:
             pass
 
+
     elif data.startswith("del_"):
         num = data.split("_", 1)[1]
 
@@ -126,6 +102,7 @@ async def cdata(c, q):
             filename = f"Sticker-{chat_id}"
         elif r.animation:
             filename = f"Animation-{chat_id}"
+
 
         tmp = os.path.join("downloads", str(chat_id))
         if not os.path.isdir(tmp):
@@ -190,6 +167,8 @@ async def start(c, m):
     )
 
 
+
+
 @Img.on_message(
     filters.private
     & (filters.photo | filters.sticker | filters.document | filters.animation)
@@ -248,6 +227,8 @@ async def getimglink(c, m):
     )
 
 
+
+
 def HumanBytes(size):
     if not size:
         return ""
@@ -281,5 +262,5 @@ def SecondsToText(secs):
     )
     return result
 
-# Run the bot
+
 Img.run()
