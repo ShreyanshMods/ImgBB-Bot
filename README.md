@@ -3,20 +3,20 @@
 <h1 align="center"><b>ImgBB-Bot</b></h1>
 <h4 align="center">Telegram Bot That Hosts Your Image On imgbb.com And Returns Link</h4>
 
-![GitHub Repo Stars](https://img.shields.io/github/stars/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Forks](https://img.shields.io/github/forks/AmineSoukara/ImgBB-Bot?color=0000&style=plastic&logo=github)
-![GitHub Issues](https://img.shields.io/github/issues/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Closed Issues](https://img.shields.io/github/issues-closed/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Closed Pull Requests](https://img.shields.io/github/issues-pr-closed/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Contributors](https://img.shields.io/github/contributors/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Repo Size](https://img.shields.io/github/repo-size/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
-![GitHub](https://img.shields.io/github/license/AmineSoukara/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Repo Stars](https://img.shields.io/github/stars/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Forks](https://img.shields.io/github/forks/ShreyanshMods/ImgBB-Bot?color=0000&style=plastic&logo=github)
+![GitHub Issues](https://img.shields.io/github/issues/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Closed Issues](https://img.shields.io/github/issues-closed/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Closed Pull Requests](https://img.shields.io/github/issues-pr-closed/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Contributors](https://img.shields.io/github/contributors/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
+![GitHub](https://img.shields.io/github/license/ShreyanshMods/ImgBB-Bot?color=black&style=plastic&logo=github)
 
 
 # 🤖 Demo:
-<a href="https://t.me/ImgBBRobot"><img src="https://img.shields.io/badge/@ImgBBRobot-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a>
+<a href="https://telegram.me/SnapLinkMasterBot"><img src="https://img.shields.io/badge/@SnapLinkMasterBot-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a>
 # 👨‍💻 Deploy:
 
 <details>	
@@ -31,7 +31,7 @@
 
 ```python3
 ## Clone The Repo
-git clone https://github.com/AmineSoukara/ImgBB-Bot
+git clone https://github.com/ShreyanshMods/ImgBB-Bot
 ## Enter The Directory
 cd ImgBB-Bot
 ## Install Requirements
@@ -52,4 +52,4 @@ python3 main.py
 
 
 # Support 
-<a href="https://t.me/damienhelp"><img src="https://img.shields.io/badge/Support_Group-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://t.me/damiensoukara"><img src="https://img.shields.io/badge/Updates_Channel-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a>
+<a href="https://telegram.me/Tech_Shreyansh2"><img src="https://img.shields.io/badge/Support_Group-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a> <a href="https://telegram.me/Tech_Shreyansh"><img src="https://img.shields.io/badge/Updates_Channel-1a66ff?style=for-the-badge&logo=telegram&logoColor=white"></a>
