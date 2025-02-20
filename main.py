@@ -33,7 +33,7 @@ def health():
 
 START_BTN = ikb([
     [("👾 About", "about"), ("📚 Help", "help")],
-    [("👨‍💻 Developer", "https://bio.link/aminesoukara", "url"), ("❌ Close", "close")],
+    [("👨‍💻 Developer", "https://t.me/Tech_Shreyansh29", "url"), ("❌ Close", "close")],
 ])
 
 HOME_BTN = ikb([[("🏠 Home", "home"), ("❌ Close", "close")]])
