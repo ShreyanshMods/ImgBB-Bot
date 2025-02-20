@@ -24,7 +24,7 @@ class Var(object):
     BOT_NAME = os.environ.get("BOT_NAME", "")
 
     START_PIC = "https://i.ibb.co/RG0hxmyc/Uploaded-6910445402.jpg"
-    HELP_PIC = "https://i.imgur.com/AmxAlix.jpg"
+    HELP_PIC = "https://i.ibb.co/7xN16XVm/Uploaded-6910445402.jpg"
 
 
 class Tr(object):
