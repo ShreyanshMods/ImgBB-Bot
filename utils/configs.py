@@ -59,7 +59,7 @@ You Can Send An Image As Forwarded Message From Any Chat/Channel Or Upload It As
 
     HELP_TEXT = """💡 Just Send Me Your Photo And I'll Upload it To You .  That's it
 
-❤ Donate: <code>techshreyansh@uboi</code> (UPI)
+❤ [Donate] <code>techshreyansh@uboi</code> (UPI)
 """
 
     ERR_TEXT = "⚠️ API Not Found"
