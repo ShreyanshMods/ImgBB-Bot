@@ -23,7 +23,7 @@ class Var(object):
     OWNER_ID = int(os.environ.get("OWNER_ID", ""))
     BOT_NAME = os.environ.get("BOT_NAME", "")
 
-    START_PIC = "https://i.imgur.com/zYIllxt.jpg"
+    START_PIC = "https://i.ibb.co/RG0hxmyc/Uploaded-6910445402.jpg"
     HELP_PIC = "https://i.imgur.com/AmxAlix.jpg"
 
 
