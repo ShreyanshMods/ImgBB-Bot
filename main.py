@@ -54,8 +54,12 @@ async def cdata(c, q):
         )
     elif data == "help":
         await q.answer(wait)
-        await q.message.edit_text(
-            text=Tr.HELP_TEXT, reply_markup=HOME_BTN, disable_web_page_preview=True
+        await q.message.delete()  # Delete the previous message
+        await q.message.reply_photo(
+            photo=Var.HELP_PIC,
+            caption=Tr.HELP_TEXT,
+            reply_markup=HOME_BTN,
+            quote=True,
         )
     elif data == "about":
         await q.answer(wait)
@@ -107,6 +111,15 @@ async def start(c, m):
         photo=Var.START_PIC,
         caption=Tr.START_TEXT.format(m.from_user.mention),
         reply_markup=START_BTN,
+        quote=True,
+    )
+
+@Img.on_message(filters.private & filters.command(["help"]))
+async def help_command(c, m):
+    await m.reply_photo(
+        photo=Var.HELP_PIC,
+        caption=Tr.HELP_TEXT,
+        reply_markup=HOME_BTN,
         quote=True,
     )
 
