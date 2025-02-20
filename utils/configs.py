@@ -47,7 +47,7 @@ You Can Send An Image As Forwarded Message From Any Chat/Channel Or Upload It As
 
 👨‍💻 **Developer:** [Tech Shreyansh](t.me/Tech_Shreyansh29)
 
-💡 **Source Code:** [Github](https://github.com/ShreyanshMods/ImgBB-Bot/fork)
+💡 **Source Code:** [Github](https://github.com/TechyShreyansh)
 
 👥 **Support Group:** [Admin Help](https://t.me/Tech_Shreyansh2)
 
