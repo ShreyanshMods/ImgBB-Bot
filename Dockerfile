@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.1
 WORKDIR .
 
 COPY requirements.txt .
